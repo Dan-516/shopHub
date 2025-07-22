@@ -96,3 +96,51 @@ body {
     border: none;
     border-radius: 10px;
 }
+
+ .logo {
+    margin: auto;
+      font-size: 3rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+
+    .shop {
+      color: #ffffff; /* Bright white */
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+    }
+
+    .hub {
+      color: #60A5FA; /* Light blue accent */
+      text-shadow: 0 0 10px rgba(96, 165, 250, 0.4);
+    }
+
+    .logo::after {
+      content: '.';
+      color: #fb4124; /* Gold dot for a pop */
+      animation: blink 1s infinite;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.3; }
+    }
+
+    #signIn-Out{
+        
+        margin-top: 50px;
+        display: flex;
+        gap: 2px;
+        justify-content: center;
+        align-items: center;
+    }
+
+
+    #signUp:hover , #logIn:hover{
+          transform: translateY(-15%);     
+          transition: all 0.2s ease;      
+    }
+
+    #signUp , #logIn{
+        transform: translateY(0);
+        transition: all 0.2s ease; 
+    }

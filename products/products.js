@@ -329,15 +329,15 @@ const renderCart = ()=>{
   if (cart.length > 0) { 
     cart.forEach((item, index) => {
       defaultEmptyCart.innerHTML += `
-        <div class='cartDisplayItems'>
+        <div class='cartDisplayItems' id='cartDisplayItems'>
           <img src="${item.image}" alt="" width="100px">
             <p>${item.name}</p>
             <p>${item.price}</p>
             <div style="display: flex; gap: 5px;">
-             <button class="decrease" data-index="${index}" style="padding: 2px;">-</button>
+             <button class="decrease" id="cartMod" data-index="${index}" >-</button>
               <span>${item.quantity}</span>
-              <button class="increase" data-index="${index}" style="padding: 2px;">+</button>
-              <button class="remove" data-index="${index}" style="padding: 2px; ">Remove</button>
+              <button class="increase" id="cartMod" data-index="${index}" >+</button>
+              <button class="remove" id="cartMod" data-index="${index}">Remove</button>
             </div>
         </div>
         

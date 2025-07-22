@@ -30,7 +30,7 @@ onAuthStateChanged(auth, (user) => {
     userId = user.uid
     console.log('User signed in:', user.displayName);
     const welcome = document.getElementById('welcome')
-welcome.textContent = `Welcome ${user.displayName}`
+welcome.textContent = `Welcome, ${user.displayName}`
 welcome.style.color = '#fff'
     const storedCart = localStorage.getItem(`cart_user_${currentUser.uid}`);
     console.log(storedCart);
@@ -40,9 +40,7 @@ welcome.style.color = '#fff'
       saveCart()
       renderCart();
     }
-    // else {
-    //   cart = []; 
-    // }
+    
     
     if (user.emailVerified) {
         console.log('welcome', user.email);
@@ -81,8 +79,8 @@ async function handleSignOut() {
   try {
     await signOut(auth);
     
-    alert('Signed out successfully!');
-    
+    // alert('Signed out successfully!');
+    showToast('Signed Out Successfully!')
     window.location.href = '../signInPage/signIn.html';
   } catch (error) {
     console.error('Error signing out:', error);
@@ -183,7 +181,7 @@ async function showOrdersInModal(userId) {
   const modal = document.getElementById('ordersModal');
   const contentDiv = document.getElementById('modalOrdersContent');
 
-  // Fetch user orders
+  
   const orders = await fetchUserOrders(userId);
 
   let html = '';
@@ -229,14 +227,7 @@ window.onclick = function(event) {
     closeModal();
   }
 
-  // const dashboard = document.getElementById('dashboard');
-  // if (event.target === dashboard){
-
-  //   dashboard.classList.remove('showDashboard')
-  // }
-
-
-};
+  };
 
 
 function attachCartButtonEvents() {
@@ -301,10 +292,10 @@ const renderCart = ()=>{
             <p>${item.name}</p>
             <p>${item.price}</p>
             <div style="display: flex; gap: 5px;">
-             <button class="decrease" data-index="${index}">-</button>
+             <button class="decrease" id="cartMod" data-index="${index}">-</button>
               <span>${item.quantity}</span>
-              <button class="increase" data-index="${index}">+</button>
-              <button class="remove" data-index="${index}">Remove</button>
+              <button class="increase" id="cartMod" data-index="${index}">+</button>
+              <button class="remove" id="cartMod" data-index="${index}">Remove</button>
             </div>
         </div>
         
@@ -319,9 +310,7 @@ const renderCart = ()=>{
       `
     }
     
-    attachCartButtonEvents()
-    // saveCart()
-    
+    attachCartButtonEvents()    
 }
 function saveCart() {
  
@@ -336,8 +325,7 @@ function getTotal(){
     console.warn('User not signed in or currentUser not set');
     return;
   }
-  
-  // localStorage.setItem(`cart_user_${currentUser.uid}`, JSON.stringify(cart));
+
  if(cart.length > 0){
 
   const cartPrices = cart.map(item => Number(item.price.replace('$', ''))*item.quantity);
