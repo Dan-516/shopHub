@@ -81,7 +81,7 @@ async function handleSignOut() {
     
     // alert('Signed out successfully!');
     showToast('Signed Out Successfully!')
-    window.location.href = '../signInPage/signIn.html';
+    window.location.href = '../index.html';
   } catch (error) {
     console.error('Error signing out:', error);
   }
