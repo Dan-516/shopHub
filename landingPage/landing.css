@@ -1,0 +1,98 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header {
+    padding: 15px 25px;
+    display: flex;
+    justify-content: space-between;
+    background-color: #1F2937;
+    border-bottom: 1px solid #ffffff8d;
+    position: fixed;
+    width: 100%;
+    top: 0;
+
+
+    #menu {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        cursor: pointer;
+
+        span {
+            color: #fff;
+        }
+
+        #searchSpan {
+            width: 200px;
+            border-radius: 50px;
+            background-color: #fff;
+            padding: 5px 10px;
+            display: flex;
+            align-items: center;
+
+            input {
+                background-color: transparent;
+                border: none !important;
+                padding: 5px;
+                width: 100%;
+                outline: none;
+                font-size: 10px;
+                color: #1F2937;
+            }
+        }
+    }
+
+    #profileDiv {
+        display: flex;
+        gap: 30px;
+        align-items: center;
+    }
+
+}
+
+#contact {
+    color: white;
+}
+
+body {
+    /* background-color: rgb(255, 255, 255); */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    overflow: hidden;
+}
+
+#main {
+    margin-top: 53px;
+    height: 93.5vh;
+
+    background-image: url('../images/mike-von-YsiSAp3ccvk-unsplash.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    text-align: center;
+
+    h1 {
+        font-size: 32px;
+    }
+
+    p {
+        font-size: 20px;
+    }
+
+}
+
+#shopBtn {
+    margin-top: 100px;
+    background-color: #1F2937;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+}
